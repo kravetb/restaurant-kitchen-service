@@ -5,8 +5,8 @@ from kitchen.models import Cook, DishType, Dish
 
 @admin.register(Cook)
 class CookAdmin(admin.ModelAdmin):
-    list_display = ["year_of_experience", ]
-    fieldsets = (("Additional info", {"fields": ("year_of_experience",)}), )
+    list_display = ["years_of_experience", ]
+    fieldsets = (("Additional info", {"fields": ("years_of_experience",)}), )
     ordering = ["-years_of_experience", ]
 
 
