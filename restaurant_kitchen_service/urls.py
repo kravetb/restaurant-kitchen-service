@@ -22,5 +22,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("kitchen/", include("kitchen.urls", namespace="kitchen"))
 ]
-
-app_name = "kitchen"
