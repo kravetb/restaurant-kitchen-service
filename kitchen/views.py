@@ -1,10 +1,16 @@
+from django.urls import reverse
 from django.views import generic
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from kitchen.models import DishType, Cook, Dish
 
 
-class HomePageView(generic.base.TemplateView):
+class HomePageView(LoginRequiredMixin, generic.base.TemplateView):
     template_name = "kitchen/index.html"
+
+    def get_logout_url(self):
+        return reverse('logout') + '?next=' + self.request.path
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
@@ -17,22 +23,23 @@ class HomePageView(generic.base.TemplateView):
         context["num_dishes"] = num_dishes
         context["num_dish_types"] = num_dish_types
         context["num_visits"] = num_visits
+        context['logout_url'] = self.get_logout_url()
         return context
 
 
-class DishTypeListView(generic.ListView):
+class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
     paginate_by = 5
     template_name = "kitchen/dish_type_list.html"
     context_object_name = "dish_type_list"
 
 
-class CookListView(generic.ListView):
+class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     paginate_by = 5
 
 
-class DishListView(generic.ListView):
+class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     paginate_by = 5
     queryset = Dish.objects.all().select_related("dish_type")
