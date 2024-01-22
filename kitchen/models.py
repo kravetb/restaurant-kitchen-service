@@ -25,9 +25,9 @@ class Dish(models.Model):
     dish_type = models.ForeignKey(
         DishType,
         on_delete=models.CASCADE,
-        related_name="cooks"
+        related_name="dishes"
     )
-    cooks = models.ManyToManyField(AUTH_USER_MODEL)
+    cooks = models.ManyToManyField(AUTH_USER_MODEL, related_name="dishes")
 
     def __str__(self) -> str:
         return f"{self.name}"
