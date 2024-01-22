@@ -1,6 +1,5 @@
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import generic
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from kitchen.models import DishType, Cook, Dish
@@ -32,6 +31,12 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
     template_name = "kitchen/dish_type_list.html"
     context_object_name = "dish_type_list"
+
+
+class DishTypeDeleteView(generic.DeleteView):
+    model = DishType
+    template_name = "kitchen/dish_type_confirm_delete.html"
+    success_url = reverse_lazy("kitchen:dish-type-list")
 
 
 class CookListView(LoginRequiredMixin, generic.ListView):
