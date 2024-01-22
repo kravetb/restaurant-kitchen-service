@@ -1,6 +1,6 @@
 from django.views import generic
 
-from kitchen.models import DishType, Cook
+from kitchen.models import DishType, Cook, Dish
 
 
 class HomePageView(generic.base.TemplateView):
@@ -17,3 +17,9 @@ class DishTypeListView(generic.ListView):
 class CookListView(generic.ListView):
     model = Cook
     paginate_by = 5
+
+
+class DishListView(generic.ListView):
+    model = Dish
+    paginate_by = 5
+    queryset = Dish.objects.all().select_related("dish_type")

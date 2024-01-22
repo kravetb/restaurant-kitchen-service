@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Dish list
+    <a href="#" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+
+  {% if dish_list %}
+    <ul>
+      {% for dish in dish_list %}
+        <li>
+          <a href="#">{{ dish.id }}</a>
+          Dish name: {{ dish.name }} Type dish: {{ dish.dish_type.name }} Price: {{ dish.price }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no cars in taxi</p>
+  {% endif %}
+{% endblock %}
