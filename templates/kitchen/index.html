@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Home page</h1>
+  <h1>Restaurant Kitchen Home</h1>
+    <p>Welcome to our kitchen!</p>
+    <h2>Dynamic content</h2>
+    <p>In our kitchen we have:</p>
+    <ul>
+        <li><strong>Type dishes:</strong> {{ num_dish_types }}</li>
+        <li><strong>Dishes:</strong> {{ num_dishes }}</li>
+        <li><strong>Cooks:</strong> {{ num_cooks }}</li>
+    </ul>
+
+    <p>You have visited this page
+        {{ num_visits }} time{{ num_visits|pluralize }}.
+    </p>
 {% endblock %}
