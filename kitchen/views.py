@@ -88,3 +88,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
+
+
+class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Dish
