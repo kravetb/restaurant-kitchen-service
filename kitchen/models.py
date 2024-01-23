@@ -15,7 +15,7 @@ class Cook(AbstractUser):
     years_of_experience = models.CharField(max_length=63, blank=True)
 
     def __str__(self) -> str:
-        return f"First name: {self.first_name} Last name: {self.last_name}"
+        return f"{self.first_name} {self.last_name}"
 
 
 class Dish(models.Model):

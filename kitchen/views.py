@@ -2,7 +2,7 @@ from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from kitchen.forms import CookCreationForm
+from kitchen.forms import CookCreationForm, DishCreationForm
 from kitchen.models import DishType, Cook, Dish
 
 
@@ -90,5 +90,12 @@ class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
 
 
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Dish
+    form_class = DishCreationForm
+    success_url = reverse_lazy("kitchen:dish_list")
+
+
 class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Dish
+    success_url = reverse_lazy("kitchen:dish-list")
