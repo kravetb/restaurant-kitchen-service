@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<header class="header-2">
+<header class="header-2" xmlns="http://www.w3.org/1999/html">
   <div class="page-header min-vh-75 relative" style="background-image: url('{% static 'img/curved-images/curved15.jpg' %}')">
     <div class="container">
       <div class="row">
@@ -33,15 +33,25 @@
   </div>
 </header>
 
-  <h1>
-    Dish Types
-    <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-primary link-to-page">Create</a>
-  </h1>
-
-  <form method="get" action="" class="form-inline">
-    {{ search_form.as_p }}
-    <input type="submit" class="btn btn-secondary" value="🔎">
-  </form>
+<section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+  <div class="container">
+    <div class="row form-bg-image">
+      <div class="col-12 d-flex align-items-center">
+        <div class="signin-inner my-3 my-lg-0 bg-white shadow border-0 rounded p-4 p-lg-5 w-100 fmxw-500 ms-0 text-start">
+          <h1>
+            Dish Types
+            <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-primary link-to-page">Create</a>
+          </h1>
+          <h1 class="h3">Find your food type</h1>
+          <form method="get" action="" class="form-inline">
+            {{ search_form.as_p }}
+            <input type="submit" class="btn btn-secondary" value="Share">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   {% if dish_type_list %}
     <table class="table">
