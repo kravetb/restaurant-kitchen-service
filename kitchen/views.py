@@ -95,6 +95,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
+    template_name = "kitchen/cook_detail.html"
 
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
