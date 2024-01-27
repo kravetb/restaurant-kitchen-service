@@ -1,30 +1,87 @@
-{% extends "base.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% load static %}
 
 {% block content %}
-  <h1>
-    Dish list
-    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page">
-      Create
-    </a>
-  </h1>
 
-  <form method="get" action="" class="form-inline">
-    {{ search_form.as_p }}
-    <input type="submit" class="btn btn-secondary" value="🔎">
-  </form>
+  <header class="header-2" xmlns="http://www.w3.org/1999/html">
+    <div class="page-header min-vh-75 relative" style="background-image: url('{% static 'img/curved-images/curved15.jpg' %}')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white pt-3 mt-n5">Restaurant Kitchen</h1>
+            <p class="lead text-white mt-3">List with all dish <br/></p>
+          </div>
+        </div>
+      </div>
 
-  {% if dish_list %}
-    <ul>
-      {% for dish in dish_list %}
-        <li>
-          <a href="{% url 'kitchen:dish-detail' pk=dish.id %}">{{ dish.id }}</a>
-          <strong>Dish name:</strong> {{ dish.name }}
-          <strong>Type dish:</strong> {{ dish.dish_type.name }}
-          <strong>Price:</strong> {{ dish.price }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
-  {% endif %}
+      <div class="position-absolute w-100 z-index-1 bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="moving-waves">
+            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+    <div class="container">
+      <div class="row form-bg-image">
+        <div class="col-12 d-flex align-items-center">
+          <div class="signin-inner my-3 my-lg-0 bg-white shadow border-0 rounded p-4 p-lg-5 w-100 fmxw-500 ms-0 text-start">
+            <h1>
+              Cook
+              <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page">Create</a>
+            </h1>
+            <h1 class="h3">Find your best food</h1>
+            <form method="get" action="" class="form-inline">
+              {{ search_form.as_p }}
+              <input type="submit" class="btn btn-secondary" value="Share">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+    <div class="container">
+      <div class="row form-bg-image">
+        <div class="col-12 d-flex align-items-center">
+          <div class="signin-inner my-3 my-lg-0 bg-white shadow border-0 rounded p-4 p-lg-5 w-100 fmxw-500 ms-0 text-start">
+
+            {% if dish_list %}
+              <table class="table">
+                <tr>
+                  <th class="alert alert-dark text-white font-weight-bold">Detail info</th>
+                  <th class="alert alert-dark text-white font-weight-bold">Dish name</th>
+                  <th class="alert alert-dark text-white font-weight-bold">Dish type</th>
+                  <th class="alert alert-dark text-white font-weight-bold">Price</th>
+                </tr>
+                {% for dish in dish_list %}
+                <tr>
+                  <td class="alert alert-success text-white font-weight-bold link"><a href="{% url 'kitchen:dish-detail' pk=dish.id %}">More information</a></td>
+                  <td class="alert alert-secondary text-white font-weight-bold">{{ dish.name }}</td>
+                  <td class="alert alert-secondary text-white font-weight-bold">{{ dish.dish_type.name }}</td>
+                  <td class="alert alert-secondary text-white font-weight-bold">{{ dish.price }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            {% else %}
+              <p>There are no cars in taxi</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
