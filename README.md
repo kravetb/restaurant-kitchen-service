@@ -72,8 +72,6 @@ This project is distributed under the [MIT License](LICENSE).
 3. **Key Variables:**
    - `SECRET_KEY`: Your Django secret key.
    - `DEBUG`: Set to `True` for development, `False` for production.
-   - `DATABASE_URL`: URL for your database connection.
-   - `API_KEY`: Your API key (if applicable).
 
 4. **Save and Use:**
    - Save the `.env` file.
