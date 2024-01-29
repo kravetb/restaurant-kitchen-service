@@ -60,3 +60,26 @@ This project is a kitchen management system where you can add, update, and delet
 
 ## License
 This project is distributed under the [MIT License](LICENSE).
+
+## Setting up Environment
+
+1. **Copy the Environment Configuration File:**
+   - Duplicate the `env.sample` file and rename the copy to `.env`.
+
+2. **Fill in the Values:**
+   - Open the `.env` file and fill in the appropriate values for each variable.
+
+3. **Key Variables:**
+   - `SECRET_KEY`: Your Django secret key.
+   - `DEBUG`: Set to `True` for development, `False` for production.
+   - `DATABASE_URL`: URL for your database connection.
+   - `API_KEY`: Your API key (if applicable).
+
+4. **Save and Use:**
+   - Save the `.env` file.
+   - This file contains sensitive information, so make sure not to share it publicly or include it in your version control system.
+
+5. **Run the Project:**
+   - Now you can run your project with the configured environment settings.
+
+Note: Do not forget to add `.env` to your `.gitignore` file to avoid accidentally committing it to version control.
