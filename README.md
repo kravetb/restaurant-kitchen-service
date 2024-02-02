@@ -25,6 +25,9 @@ This project is a kitchen management system where you can add, update, and delet
 3. [Kitchen project deploy to Render](https://restaurant-kitchen-rpm9.onrender.com/)
 4. [Environment Configuration](#environment-configuration)
 5. [License](#license)
+6. Use a test user to check the functionality
+- Username: test_user
+- Password: qwerty1234
 
 ## Pages
 
