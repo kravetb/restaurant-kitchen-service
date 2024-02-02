@@ -26,8 +26,8 @@ This project is a kitchen management system where you can add, update, and delet
 4. [Environment Configuration](#environment-configuration)
 5. [License](#license)
 6. Use a test user to check the functionality
-- Username: test_user
-- Password: qwerty1234
+- Username: user
+- Password: user1234
 
 ## Pages
 
