@@ -1,5 +1,12 @@
 # restaurant-kitchen-service
 
+## Link to projekt on Render: 
+https://restaurant-kitchen-rpm9.onrender.com/
+
+### Use a test user to check the functionality
+- Username: user
+- Password: user1234
+
 ## Overview
 This project is a kitchen management system where you can add, update, and delete various dish types, cooks, and dishes.
 
@@ -22,12 +29,8 @@ This project is a kitchen management system where you can add, update, and delet
     - [Delete Dish](#delete-dish)
 
 2. [Instructions for Local Setup](#instructions-for-local-setup)
-3. [Kitchen project deploy to Render](https://restaurant-kitchen-rpm9.onrender.com/)
-4. [Environment Configuration](#environment-configuration)
-5. [License](#license)
-6. Use a test user to check the functionality
-- Username: user
-- Password: user1234
+3. [Environment Configuration](#environment-configuration)
+4. [License](#license)
 
 ## Pages
 
